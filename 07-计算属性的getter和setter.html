@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{fullname}}
+</div>
+<script src="js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data:{
+      firstname: 'jack',
+      lastname: 'web'
+    },
+    computed:{
+      fullname:{
+        get:function () {
+          return this.firstname+' '+this.lastname;
+       
+        },
+        set:function (newvalue) {
+          const news =newvalue.split(' ');
+          this.firstname=news[0];
+          this.lastname=news[1];
+        }
+
+
+
+      }
+    }
+  })
+</script>
+</body>
+</html>
